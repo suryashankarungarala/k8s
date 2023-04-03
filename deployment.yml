@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: surya-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: surya
+  template:
+    metadata:
+      name: surya-pod
+        labels:
+          app: surya
+    spec:
+      containers:
+        - name: surya-containers
+          image: nginx:latest
+          ports:
+            - containerPort: 80
